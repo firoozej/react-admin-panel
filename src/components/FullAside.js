@@ -67,7 +67,7 @@ class FullAside extends Component {
               <ListGroupItem className="list-group-item-accent-secondary bg-light text-center font-weight-bold text-muted text-uppercase small">Today</ListGroupItem>
               <ListGroupItem action tag="a" href="#" className="list-group-item-accent-warning list-group-item-divider">
                 <div className="avatar float-right">
-                  <img className="img-avatar" src="assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com"></img>
+                  <img className="img-avatar" src="/assets/img/avatars/7.jpg" alt="admin@bootstrapmaster.com"></img>
                 </div>
                 <div>Meeting with <strong>Lucas</strong> </div>
                 <small className="text-muted mr-3">
@@ -79,7 +79,7 @@ class FullAside extends Component {
               </ListGroupItem>
               <ListGroupItem action tag="a" href="#" className="list-group-item-accent-info list-group-item-divider">
                 <div className="avatar float-right">
-                  <img className="img-avatar" src="assets/img/avatars/4.jpg" alt="admin@bootstrapmaster.com"></img>
+                  <img className="img-avatar" src="/assets/img/avatars/4.jpg" alt="admin@bootstrapmaster.com"></img>
                 </div>
                 <div>Skype with <strong>Megan</strong></div>
                 <small className="text-muted mr-3">
@@ -96,19 +96,19 @@ class FullAside extends Component {
                 <small className="text-muted"><i className="icon-home"></i>&nbsp; creativeLabs HQ</small>
                 <div className="avatars-stack mt-2">
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/2.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={'/assets/img/avatars/2.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/3.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={'/assets/img/avatars/3.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/4.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={'/assets/img/avatars/4.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/5.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={'/assets/img/avatars/5.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={'/assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                 </div>
               </ListGroupItem>
@@ -123,25 +123,25 @@ class FullAside extends Component {
                 <small className="text-muted"><i className="icon-home"></i>&nbsp; creativeLabs HQ</small>
                 <div className="avatars-stack mt-2">
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/2.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={'/assets/img/avatars/2.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/3.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={'/assets/img/avatars/3.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/4.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={'/assets/img/avatars/4.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/5.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={'/assets/img/avatars/5.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={'/assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={'/assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                   <div className="avatar avatar-xs">
-                    <img src={'assets/img/avatars/8.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                    <img src={'/assets/img/avatars/8.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   </div>
                 </div>
               </ListGroupItem>
@@ -151,7 +151,7 @@ class FullAside extends Component {
             <div className="message">
               <div className="py-3 pb-5 mr-3 float-left">
                 <div className="avatar">
-                  <img src={'assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                  <img src={'/assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   <span className="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -168,7 +168,7 @@ class FullAside extends Component {
             <div className="message">
               <div className="py-3 pb-5 mr-3 float-left">
                 <div className="avatar">
-                  <img src={'assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                  <img src={'/assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   <span className="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -185,7 +185,7 @@ class FullAside extends Component {
             <div className="message">
               <div className="py-3 pb-5 mr-3 float-left">
                 <div className="avatar">
-                  <img src={'assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                  <img src={'/assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   <span className="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -202,7 +202,7 @@ class FullAside extends Component {
             <div className="message">
               <div className="py-3 pb-5 mr-3 float-left">
                 <div className="avatar">
-                  <img src={'assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                  <img src={'/assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   <span className="avatar-status badge-success"></span>
                 </div>
               </div>
@@ -219,7 +219,7 @@ class FullAside extends Component {
             <div className="message">
               <div className="py-3 pb-5 mr-3 float-left">
                 <div className="avatar">
-                  <img src={'assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
+                  <img src={'/assets/img/avatars/7.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />
                   <span className="avatar-status badge-success"></span>
                 </div>
               </div>

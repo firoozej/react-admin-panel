@@ -1,15 +1,6 @@
 export default {
   items: [
     {
-      name: 'Dashboard',
-      url: '/dashboard',
-      icon: 'icon-speedometer',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      },
-    },
-    {
       title: true,
       name: 'Theme',
       wrapper: {            // optional wrapper object
@@ -19,8 +10,8 @@ export default {
       class: ''             // optional class names space delimited list for title item ex: "text-center"
     },
     {
-        name: 'Visa',
-        url: '/visa',
+        name: 'Role',
+        url: '/role',
         icon: 'icon-drop',
     },
     {

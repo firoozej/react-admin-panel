@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import { Container } from 'reactstrap';
+import React, {Component} from 'react';
+import {Switch, Route} from 'react-router-dom';
+import {Container} from 'reactstrap';
 import {
     AppAside,
     AppBreadcrumb,
@@ -19,48 +19,49 @@ import navigation from '../_nav';
 import FullAside from './FullAside';
 import FullFooter from './FullFooter';
 import FullHeader from './FullHeader';
+import RoleEdit from './Role/Edit';
+import RoleList from './Role/List';
+import RoleCreate from './Role/Create';
+import Dashboard from './Dashboard';
 
-import './App.css';
 import 'flag-icon-css/css/flag-icon.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'simple-line-icons/css/simple-line-icons.css';
 import '../scss/style.css';
 
+
 class App extends Component {
     render() {
         return (
-            <div className="app">
+            <div className='app'>
                 <AppHeader fixed>
-                    <FullHeader />
+                    <FullHeader/>
                 </AppHeader>
-                <div className="app-body">
-                    <AppSidebar fixed display="lg">
-                        <AppSidebarHeader />
-                        <AppSidebarForm />
+                <div className='app-body'>
+                    <AppSidebar fixed display='lg'>
+                        <AppSidebarHeader/>
+                        <AppSidebarForm/>
                         <AppSidebarNav navConfig={navigation} {...this.props} />
-                        <AppSidebarFooter />
-                        <AppSidebarMinimizer />
+                        <AppSidebarFooter/>
+                        <AppSidebarMinimizer/>
                     </AppSidebar>
-                    <main className="main">
+                    <main className='main'>
                         <AppBreadcrumb appRoutes={routes}/>
                         <Container fluid>
                             <Switch>
-                                {routes.map((route, idx) => {
-                                        return route.component ? (<Route key={idx} path={route.path} exact={route.exact} name={route.name} render={props => (
-                                                <route.component {...props} />
-                                            )} />)
-                                            : (null);
-                                    },
-                                )}
+                                <Route path='/role/create' component={RoleCreate}/>
+                                <Route path='/role/edit/:id' component={RoleEdit}/>
+                                <Route path='/role' component={RoleList}/>
+                                <Route path='/' component={Dashboard}/>
                             </Switch>
                         </Container>
                     </main>
                     <AppAside fixed hidden>
-                        <FullAside />
+                        <FullAside/>
                     </AppAside>
                 </div>
                 <AppFooter>
-                    <FullFooter />
+                    <FullFooter/>
                 </AppFooter>
             </div>
         );
