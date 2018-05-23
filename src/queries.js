@@ -17,3 +17,13 @@ export const getPermissionsQuery = gql`
     }
 }
 `;
+
+export const getUsersQuery = gql`
+{
+    users {
+        id
+        name
+        email
+    }
+}
+`;

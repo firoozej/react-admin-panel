@@ -11,7 +11,6 @@ const CustomSelect = ({
 }) => {
     const error = touched[field.name] &&
         errors[field.name];
-    //const selectedRoles = Array.isArray(field.value) ? field.value.map(role => role.id) : [field.value];
 
     return (
         <div>

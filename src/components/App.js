@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {Switch, Route} from 'react-router-dom';
-import {Container} from 'reactstrap';
+import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { Container } from 'reactstrap';
 import {
     AppAside,
     AppBreadcrumb,
@@ -25,6 +25,9 @@ import RoleCreate from './Role/Create';
 import PermissionEdit from './Permission/Edit';
 import PermissionList from './Permission/List';
 import PermissionCreate from './Permission/Create';
+import UserEdit from './User/Edit';
+import UserList from './User/List';
+import UserCreate from './User/Create';
 import Dashboard from './Dashboard';
 
 import 'flag-icon-css/css/flag-icon.min.css';
@@ -38,36 +41,39 @@ class App extends Component {
         return (
             <div className='app'>
                 <AppHeader fixed>
-                    <FullHeader/>
+                    <FullHeader />
                 </AppHeader>
                 <div className='app-body'>
                     <AppSidebar fixed display='lg'>
-                        <AppSidebarHeader/>
-                        <AppSidebarForm/>
+                        <AppSidebarHeader />
+                        <AppSidebarForm />
                         <AppSidebarNav navConfig={navigation} {...this.props} />
-                        <AppSidebarFooter/>
-                        <AppSidebarMinimizer/>
+                        <AppSidebarFooter />
+                        <AppSidebarMinimizer />
                     </AppSidebar>
                     <main className='main'>
-                        <AppBreadcrumb appRoutes={routes}/>
+                        <AppBreadcrumb appRoutes={routes} />
                         <Container fluid>
                             <Switch>
-                                <Route path='/permission/create' component={PermissionCreate}/>
-                                <Route path='/permission/edit/:id' component={PermissionEdit}/>
-                                <Route path='/permission' component={PermissionList}/>
-                                <Route path='/role/create' component={RoleCreate}/>
-                                <Route path='/role/edit/:id' component={RoleEdit}/>
-                                <Route path='/role' component={RoleList}/>
-                                <Route path='/' component={Dashboard}/>
+                                <Route path='/user/create' component={UserCreate} />
+                                <Route path='/user/edit/:id' component={UserEdit} />
+                                <Route path='/user' component={UserList} />
+                                <Route path='/permission/create' component={PermissionCreate} />
+                                <Route path='/permission/edit/:id' component={PermissionEdit} />
+                                <Route path='/permission' component={PermissionList} />
+                                <Route path='/role/create' component={RoleCreate} />
+                                <Route path='/role/edit/:id' component={RoleEdit} />
+                                <Route path='/role' component={RoleList} />
+                                <Route path='/' component={Dashboard} />
                             </Switch>
                         </Container>
                     </main>
                     <AppAside fixed hidden>
-                        <FullAside/>
+                        <FullAside />
                     </AppAside>
                 </div>
                 <AppFooter>
-                    <FullFooter/>
+                    <FullFooter />
                 </AppFooter>
             </div>
         );
