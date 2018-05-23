@@ -22,6 +22,9 @@ import FullHeader from './FullHeader';
 import RoleEdit from './Role/Edit';
 import RoleList from './Role/List';
 import RoleCreate from './Role/Create';
+import PermissionEdit from './Permission/Edit';
+import PermissionList from './Permission/List';
+import PermissionCreate from './Permission/Create';
 import Dashboard from './Dashboard';
 
 import 'flag-icon-css/css/flag-icon.min.css';
@@ -49,6 +52,9 @@ class App extends Component {
                         <AppBreadcrumb appRoutes={routes}/>
                         <Container fluid>
                             <Switch>
+                                <Route path='/permission/create' component={PermissionCreate}/>
+                                <Route path='/permission/edit/:id' component={PermissionEdit}/>
+                                <Route path='/permission' component={PermissionList}/>
                                 <Route path='/role/create' component={RoleCreate}/>
                                 <Route path='/role/edit/:id' component={RoleEdit}/>
                                 <Route path='/role' component={RoleList}/>

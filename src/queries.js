@@ -8,3 +8,12 @@ export const getRolesQuery = gql`
     }
 }
 `;
+
+export const getPermissionsQuery = gql`
+{
+    permissions {
+        id
+        name
+    }
+}
+`;
