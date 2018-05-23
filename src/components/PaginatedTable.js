@@ -45,7 +45,7 @@ class PaginatedTable extends Component {
 export default PaginatedTable;
 
 PaginatedTable.defaultProps = {
-    perPage: 10
+    perPage: 30
 };
 
 PaginatedTable.propTypes = {
