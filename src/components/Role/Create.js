@@ -1,10 +1,8 @@
-import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
+import React, { Component } from 'react';
 import gql from 'graphql-tag';
-import {Mutation} from 'react-apollo';
+import { getRolesQuery as listQuery } from '../../queries';
 import CForm from './CForm';
-import {getRolesQuery} from '../../queries';
-import withError from '../withError';
+import Create from '../Create';
 
 const ADD_Mutation = gql`
   mutation addRole($name: String!) {
@@ -15,48 +13,26 @@ const ADD_Mutation = gql`
   }
 `;
 
-class Create extends Component {
-    state = {
-        mutationComplete: false,
-        error: false
-    };
+class RoleCreate extends Component {
 
-    onSubmit() {
-        arguments[0]({variables: {name: arguments[1].name}});
-    }
-
-    onUpdate = (cache, {data: {addRole: item}}) => {
-        if(cache.data.data.ROOT_QUERY.roles) {
-        const {roles} = cache.readQuery({query: getRolesQuery});
+    onUpdate = (cache, { data: { addRole: item } }) => {
+        if (cache.data.data.ROOT_QUERY.roles) {
+            const { roles } = cache.readQuery({ query: listQuery });
             cache.writeQuery({
-                query: getRolesQuery,
-                data: {roles: roles.concat([item])}
+                query: listQuery,
+                data: { roles: roles.concat([item]) }
             });
         }
-        this.setState({
-            mutationComplete: true
-        });
     };
 
     render() {
-        if (this.state.mutationComplete) {
-            return <Redirect to='/role'/>
-        }
-        return (
-            <Mutation mutation={ADD_Mutation}
-                      update={this.onUpdate}
-                      onError={this.props.onError}>
-                {(addMutation, {loading}) => {
-                    return (
-                        <CForm
-                            onSubmit={this.onSubmit.bind(this, addMutation)}
-                            mode='create'
-                            loading={loading}
-                        />);
-                }}
-            </Mutation>
-        );
+        return <Create 
+        ADD_Mutation={ADD_Mutation} 
+        onUpdate={this.onUpdate} 
+        CForm={CForm}
+        route='role' />
+        
     }
 }
 
-export default withError(Create);
+export default RoleCreate;

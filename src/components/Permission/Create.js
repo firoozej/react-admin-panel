@@ -1,70 +1,42 @@
-import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
+import React, { Component } from 'react';
 import gql from 'graphql-tag';
-import {Mutation} from 'react-apollo';
+import { getPermissionsQuery as listQuery } from '../../queries';
 import CForm from './CForm';
-import {getPermissionsQuery} from '../../queries';
-import withError from '../withError';
+import Create from '../Create';
 
 const ADD_Mutation = gql`
-  mutation addPermission($name: String!, $roles: [String]) {
-    addPermission(name: $name, roles: $roles) {
-      id
-      name,
-      roles {
-          id
-          name
-      }
+mutation addPermission($name: String!, $roles: [String]) {
+  addPermission(name: $name, roles: $roles) {
+    id
+    name,
+    roles {
+        id
+        name
     }
   }
+}
 `;
 
-class Create extends Component {
-    state = {
-        mutationComplete: false,
-        error: false
-    };
+class PermissionCreate extends Component {
 
-    onSubmit() {
-        arguments[0]({variables: {
-            name: arguments[1].name,
-            roles: arguments[1].roles
-        
-        }});
-    }
-
-    onUpdate = (cache, {data: {addPermission: item}}) => {
-        if(cache.data.data.ROOT_QUERY.permissions) {
-        const {permissions} = cache.readQuery({query: getPermissionsQuery});
+    onUpdate = (cache, { data: { addPermission: item } }) => {
+        if (cache.data.data.ROOT_QUERY.permissions) {
+            const { permissions } = cache.readQuery({ query: listQuery });
             cache.writeQuery({
-                query: getPermissionsQuery,
-                data: {permissions: permissions.concat([item])}
+                query: listQuery,
+                data: { permissions: permissions.concat([item]) }
             });
         }
-        this.setState({
-            mutationComplete: true
-        });
     };
 
     render() {
-        if (this.state.mutationComplete) {
-            return <Redirect to='/permission'/>
-        }
-        return (
-            <Mutation mutation={ADD_Mutation}
-                      update={this.onUpdate}
-                      onError={this.props.onError}>
-                {(addMutation, {loading}) => {
-                    return (
-                        <CForm
-                            onSubmit={this.onSubmit.bind(this, addMutation)}
-                            mode='create'
-                            loading={loading}
-                        />);
-                }}
-            </Mutation>
-        );
+        return <Create 
+        ADD_Mutation={ADD_Mutation} 
+        onUpdate={this.onUpdate} 
+        CForm={CForm}
+        route='permission' />
+        
     }
 }
 
-export default withError(Create);
+export default PermissionCreate;
