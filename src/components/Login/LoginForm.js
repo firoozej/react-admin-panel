@@ -5,10 +5,11 @@ import {
     InputGroupText
 } from 'reactstrap';
 import CustomInput from '../CustomInput';
+import Loading from '../Loading';
 
 const Yup = require('yup');
 
-const LoginForm = ({loginError}) => (
+const LoginForm = ({loginError, loading}) => (
     <div className='app flex-row align-items-center'>
         <Container>
             <Row className='justify-content-center'>
@@ -17,7 +18,7 @@ const LoginForm = ({loginError}) => (
                         <Card className='p-4'>
                             <CardBody>
                                 <Form>
-                                    <h1>Login</h1>
+                                    <h1>Login {loading ? <Loading button/> : ''}</h1>
                                     <p className='text-muted'>Sign In to your account</p>
                                     <InputGroup className='mb-3'>
                                         <InputGroupAddon addonType='prepend'>

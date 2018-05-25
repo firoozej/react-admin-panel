@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import gql from 'graphql-tag';
-import {graphql} from 'react-apollo';
+import { graphql } from 'react-apollo';
 import LoginForm from './LoginForm';
 import Redirect from 'react-router-dom/es/Redirect';
 import withError from '../withError';
@@ -19,8 +19,13 @@ class Login extends Component {
         loading: false,
         error: ''
     };
-    onSubmit({email, password}) {
-        const onError = this.props.onError;
+    onSubmit({ email, password }) {
+        
+        this.setState({
+            loading: true
+        });
+        
+        
         this.props.mutate({
             variables: {
                 email,
@@ -29,22 +34,30 @@ class Login extends Component {
             context: {
                 uri: '/default'
             }
-        }).then((response) => {
+        })
+        .then((response) => {
             localStorage.setItem('access_token', response.data.login.access_token);
+            
             this.setState({
-                authenticated: true
-            })
-        }).catch(error => {
-            onError(error);
+                authenticated: true,
+                loading: false
+            });
+
+        })
+        .catch(error => {
+            this.setState({
+                loading: false
+            });
+            this.props.onError(error);
         });
     }
 
     render() {
-        return (
-            (this.state.authenticated)
-                ? <Redirect to='/' />
-                : <LoginForm onSubmit={this.onSubmit.bind(this)}/>
-        );
+        if (this.state.authenticated)
+            return <Redirect to='/' />;
+
+        return <LoginForm onSubmit={this.onSubmit.bind(this)} loading={this.state.loading} />
+
     }
 }
 
