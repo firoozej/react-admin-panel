@@ -13,11 +13,13 @@ mutation deleteRole($id: String!) {
 `;
 
 export default () => (
-    <List
-        LIST_QUERY={LIST_QUERY}
-        DELETE_MUTATION={DELETE_MUTATION}
-        route='role'
-        title='Roles'
-    />
+  <List
+    LIST_QUERY={LIST_QUERY}
+    DELETE_MUTATION={DELETE_MUTATION}
+    route='role'
+    title='Roles'
+    headers={['Name']}
+    keys={['name']}
+  />
 
 );

@@ -23,12 +23,13 @@ class List extends Component {
                 <React.Fragment>
                     <PaginatedTable
                         data={data[Object.keys(data)[0]]}
-                        headers={['Name']}
-                        keys={['name']}
+                        headers={this.props.headers}
+                        keys={this.props.keys}
                         route='user'
                         onDelete={this.onDelete}
-                        deleteMutation={this.props.DELETE_MUTATION}
-                        listQuery={this.props.LIST_QUERY}
+                        DELETE_MUTATION={this.props.DELETE_MUTATION}
+                        LIST_QUERY={this.props.LIST_QUERY}
+                        deletable={this.props.deletable ? this.props.deletable : true}
                     />
                     <Link to={`/${this.props.route}/create`}
                           className='btn btn-primary btn-square'>Add</Link>

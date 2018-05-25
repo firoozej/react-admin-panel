@@ -1,6 +1,6 @@
 import React from 'react';
 import gql from 'graphql-tag';
-import { getPermissionsQuery as LIST_QUERY } from '../../queries';
+import { permissionsQuery as LIST_QUERY } from '../../queries';
 import List from '../List';
 
 const DELETE_MUTATION = gql`
@@ -18,6 +18,8 @@ export default () => (
         DELETE_MUTATION={DELETE_MUTATION}
         route='permission'
         title='Permissions'
+        headers={['Name']}
+        keys={['name']}
     />
 
 );

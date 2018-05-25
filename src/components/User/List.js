@@ -13,11 +13,13 @@ const DELETE_MUTATION = gql`
 `;
 
 export default () => (
-    <List
-        LIST_QUERY={LIST_QUERY}
-        DELETE_MUTATION={DELETE_MUTATION}
-        route='user'
-        title='Users'
-    />
+  <List
+    LIST_QUERY={LIST_QUERY}
+    DELETE_MUTATION={DELETE_MUTATION}
+    route='user'
+    title='Users'
+    headers={['Name']}
+    keys={['name']}
+  />
 
 );

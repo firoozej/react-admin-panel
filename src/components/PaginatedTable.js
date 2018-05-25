@@ -31,8 +31,9 @@ class PaginatedTable extends Component {
                 keys={this.props.keys}
                 route={this.props.route}
                 onDelete={this.props.onDelete}
-                deleteMutation={this.props.deleteMutation}
-                listQuery={this.props.listQuery}
+                DELETE_MUTATION={this.props.DELETE_MUTATION}
+                LIST_QUERY={this.props.LIST_QUERY}
+                deletable={this.props.deletable}
             />,
             <Pagination
                 pageCount={Math.ceil(this.props.data.length / this.props.perPage)}

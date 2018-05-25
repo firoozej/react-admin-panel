@@ -9,7 +9,7 @@ export const getRolesQuery = gql`
 }
 `;
 
-export const getPermissionsQuery = gql`
+export const permissionsQuery = gql`
 {
     permissions {
         id
