@@ -25,7 +25,7 @@ class List extends Component {
                         data={data[Object.keys(data)[0]]}
                         headers={this.props.headers}
                         keys={this.props.keys}
-                        route='user'
+                        route={this.props.route}
                         onDelete={this.onDelete}
                         DELETE_MUTATION={this.props.DELETE_MUTATION}
                         LIST_QUERY={this.props.LIST_QUERY}

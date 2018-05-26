@@ -9993,6 +9993,12 @@ body {
   .button-loading-indicator img {
     width: 20px; }
 
+.menu-loading-indicator {
+  text-align: center;
+  padding-top: 30px; }
+  .menu-loading-indicator img {
+    width: 30px; }
+
 .help-block.error {
   font-size: 10px;
   color: #f86c6b;

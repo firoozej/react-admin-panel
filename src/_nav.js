@@ -13,16 +13,19 @@ export default {
       name: 'Users',
       url: '/user',
       icon: 'icon-star',
+      type: 'item'
     },
     {
       name: 'Roles',
       url: '/role',
       icon: 'icon-star',
+      type: 'item'
     },
     {
       name: 'Permissions',
       url: '/permission',
       icon: 'icon-star',
+      type: 'item'
     }
   ]
 };

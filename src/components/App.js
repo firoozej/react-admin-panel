@@ -11,11 +11,9 @@ import {
     AppSidebarForm,
     AppSidebarHeader,
     AppSidebarMinimizer,
-    AppSidebarNav,
 } from '@coreui/react';
 
 import routes from '../routes';
-import navigation from '../_nav';
 import FullAside from './FullAside';
 import FullFooter from './FullFooter';
 import FullHeader from './FullHeader';
@@ -29,6 +27,7 @@ import UserEdit from './User/Edit';
 import UserList from './User/List';
 import UserCreate from './User/Create';
 import Dashboard from './Dashboard';
+import AppSidebarNav from './AppSidebarNav';
 
 import 'flag-icon-css/css/flag-icon.min.css';
 import 'font-awesome/css/font-awesome.min.css';
@@ -47,7 +46,7 @@ class App extends Component {
                     <AppSidebar fixed display='lg'>
                         <AppSidebarHeader />
                         <AppSidebarForm />
-                        <AppSidebarNav navConfig={navigation} {...this.props} />
+                        <AppSidebarNav {...this.props} />
                         <AppSidebarFooter />
                         <AppSidebarMinimizer />
                     </AppSidebar>

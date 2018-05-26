@@ -18,12 +18,21 @@ export const permissionsQuery = gql`
 }
 `;
 
+
 export const getUsersQuery = gql`
 {
     users {
         id
         name
         email
+    }
+}
+`;
+
+export const navQuery = gql`
+{
+    nav {
+        id
     }
 }
 `;
