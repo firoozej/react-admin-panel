@@ -1,6 +1,6 @@
 import gql from "graphql-tag";
 
-export const getRolesQuery = gql`
+export const rolesQuery = gql`
 {
     roles {
         id

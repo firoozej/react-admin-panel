@@ -2,7 +2,6 @@ import React from 'react';
 import { Input } from 'reactstrap';
 import { Query } from 'react-apollo';
 import Error from './Error';
-import { getRolesQuery } from '../queries';
 
 const CustomSelect = ({
     field, // { name, value, onChange, onBlur }
@@ -14,7 +13,7 @@ const CustomSelect = ({
 
     return (
         <div>
-            <Query query={getRolesQuery}>
+            <Query query={props.LIST_QUERY}>
                 {({ loading, error, data }) => {
 
                     if (loading) return <Input type="select" className={error && 'is-invalid'} {...field} {...props} multiple></Input>;

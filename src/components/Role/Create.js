@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import gql from 'graphql-tag';
-import { getRolesQuery as listQuery } from '../../queries';
+import { rolesQuery as listQuery } from '../../queries';
 import CForm from './CForm';
 import Create from '../Create';
 

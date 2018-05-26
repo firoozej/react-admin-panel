@@ -5,6 +5,7 @@ import Loading from '../Loading';
 import CustomInput from '../CustomInput';
 import CustomSelect from '../CustomSelect';
 import withBox from '../withBox';
+import { rolesQuery } from '../../queries';
 const Yup = require('yup');
 
 class CForm extends Component {
@@ -44,7 +45,9 @@ class CForm extends Component {
                             </Col>
                             <Col xs='12' md='5'>
                                 <Field name="roles" component={CustomSelect} 
-                                       onChange={this.onRoleChange}/>
+                                       onChange={this.onRoleChange}
+                                       LIST_QUERY={rolesQuery}
+                                       />
         
                             </Col>
                         </FormGroup>

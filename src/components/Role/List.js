@@ -1,6 +1,6 @@
 import React from 'react';
 import gql from 'graphql-tag';
-import { getRolesQuery as LIST_QUERY } from '../../queries';
+import { rolesQuery as LIST_QUERY } from '../../queries';
 import List from '../List';
 
 const DELETE_MUTATION = gql`
