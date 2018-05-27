@@ -26,6 +26,26 @@ export default {
       url: '/permission',
       icon: 'icon-star',
       type: 'item'
+    },
+    {
+      name: 'Gallery',
+      url: '/gallery',
+      icon: 'icon-star',
+      type: 'item',
+      children: [
+        {
+          name: 'Category',
+          url: '/gallerycategory',
+          icon: 'icon-layers',
+          type: 'item'
+        },
+        {
+          name: 'Picture',
+          url: '/gallerypicture',
+          icon: 'icon-layers',
+          type: 'item'
+        }
+      ],
     }
   ]
 };
