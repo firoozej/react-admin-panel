@@ -28,20 +28,18 @@ export default {
       type: 'item'
     },
     {
-      name: 'Gallery',
-      url: '/gallery',
+      name: 'Content',
       icon: 'icon-star',
-      type: 'item',
       children: [
         {
           name: 'Category',
-          url: '/gallerycategory',
+          url: '/category',
           icon: 'icon-layers',
           type: 'item'
         },
         {
-          name: 'Picture',
-          url: '/gallerypicture',
+          name: 'Item',
+          url: '/item',
           icon: 'icon-layers',
           type: 'item'
         }

@@ -1,33 +1,40 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
+import gql from 'graphql-tag';
 import { Button, Col, FormGroup, Label, CardBody, CardHeader, CardFooter } from 'reactstrap';
 import { withFormik, Form, Field } from 'formik';
 import Loading from '../Loading';
 import CustomInput from '../CustomInput';
 import CustomSelect from '../CustomSelect';
 import withBox from '../withBox';
-import { rolesQuery } from '../../queries';
 const Yup = require('yup');
+
+const LIST_QUERY = gql`
+{
+    categoriesForSelect {
+        id
+        name
+    }
+}
+`;
 
 class CForm extends Component {
     componentDidMount() {
         this.props.setFieldValue(
-            "roles",
-            this.props.values.roles.map(role => role.id)
-          )
+            'parent',
+            this.props.values.parent
+        )
     }
-    onRoleChange = (evt) => {
+    onCategoryChange = (evt) => {
         this.props.setFieldValue(
-            "roles",
-            [].slice
-              .call(evt.target.selectedOptions)
-              .map(option => option.value)
-          )
+            'parent',
+            evt.target.selectedOptions[0].value
+        )
     }
     render() {
         return (
             <React.Fragment>
                 <CardHeader>
-                    {this.props.mode === 'create' ? 'New Permission' : 'Edit Permission'}
+                    {this.props.mode === 'create' ? 'New Category' : 'Edit Category'}
                 </CardHeader>
                 <Form>
                     <CardBody>
@@ -41,15 +48,17 @@ class CForm extends Component {
                         </FormGroup>
                         <FormGroup row>
                             <Col md='1'>
-                                <Label>Assign To Role</Label>
+                                <Label>Assign To Category</Label>
                             </Col>
                             <Col xs='12' md='5'>
-                                <Field name="roles" component={CustomSelect} 
-                                       onChange={this.onRoleChange}
-                                       LIST_QUERY={rolesQuery}
-                                       multiple
-                                       />
-        
+                                <Field
+                                    name='parent'
+                                    component={CustomSelect}
+                                    onChange={this.onCategoryChange}
+                                    LIST_QUERY={LIST_QUERY}
+                                    showSelectOne
+                                    fetchPolicy='network-only' />
+
                             </Col>
                         </FormGroup>
                     </CardBody>
@@ -58,18 +67,18 @@ class CForm extends Component {
                     </CardFooter>
                 </Form>
             </React.Fragment>
-        
+
         )
 
     }
 }
 
 export default withFormik({
-    mapPropsToValues({ id = '', name = '', roles = [] }) {
+    mapPropsToValues({ id = '', name = '', parent = '' }) {
         return {
             id,
             name,
-            roles
+            parent
         }
     },
     validationSchema: Yup.object().shape({

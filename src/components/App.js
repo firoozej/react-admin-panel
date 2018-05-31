@@ -26,6 +26,9 @@ import PermissionCreate from './Permission/Create';
 import UserEdit from './User/Edit';
 import UserList from './User/List';
 import UserCreate from './User/Create';
+import ContentCategoryEdit from './ContentCategory/Edit';
+import ContentCategoryList from './ContentCategory/List';
+import ContentCategoryCreate from './ContentCategory/Create';
 import Dashboard from './Dashboard';
 import AppSidebarNav from './AppSidebarNav';
 
@@ -54,6 +57,9 @@ class App extends Component {
                         <AppBreadcrumb appRoutes={routes} />
                         <Container fluid>
                             <Switch>
+                                <Route path='/category/create' component={ContentCategoryCreate} />
+                                <Route path='/category/edit/:id' component={ContentCategoryEdit} />
+                                <Route path='/category' component={ContentCategoryList} />
                                 <Route path='/user/create' component={UserCreate} />
                                 <Route path='/user/edit/:id' component={UserEdit} />
                                 <Route path='/user' component={UserList} />

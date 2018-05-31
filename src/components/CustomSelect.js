@@ -13,15 +13,24 @@ const CustomSelect = ({
 
     return (
         <div>
-            <Query query={props.LIST_QUERY}>
+            <Query query={props.LIST_QUERY} fetchPolicy={props.fetchPolicy}>
                 {({ loading, error, data }) => {
 
-                    if (loading) return <Input type="select" className={error && 'is-invalid'} {...field} {...props} multiple></Input>;
+                    if (loading) return <Input type="select" className={error && 'is-invalid'} {...field} multiple={props.multiple}></Input>;
                     if (error) return <Error error={error} />;
 
                     return (
-                        <Input type="select" className={error && 'is-invalid'} {...field} {...props} multiple>
-                            {data.roles.map(role => <option key={role.id} value={role.id}>{role.name}</option>)}
+                        <Input
+                            type="select"
+                            className={error && 'is-invalid'}
+                            {...field}
+                            onChange={props.onChange}
+                            multiple={props.multiple}>
+                            {props.showSelectOne ? <option key={0} value=''>Select</option> : ''}
+                            {data[Object.keys(data)[0]].map(item => (
+                                <option key={item.id} value={item.id}>{item.name}</option>)
+                            )}
+
                         </Input>
                     );
                 }}

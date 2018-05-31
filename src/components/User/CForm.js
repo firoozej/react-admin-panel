@@ -63,6 +63,7 @@ class CForm extends Component {
                                 <Field name="roles" component={CustomSelect}
                                     onChange={this.onRoleChange}
                                     LIST_QUERY={rolesQuery}
+                                    multiple
                                 />
 
                             </Col>

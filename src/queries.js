@@ -36,3 +36,13 @@ export const navQuery = gql`
     }
 }
 `;
+
+export const categories = gql`
+{
+    categories {
+        id
+        name
+        parent
+    }
+}
+`;
