@@ -1,19 +1,18 @@
 import React from 'react';
 import { Input } from 'reactstrap';
 import { Query } from 'react-apollo';
-import Error from './Error';
+import Error from '../Error';
 
 const CustomSelect = ({
     field, // { name, value, onChange, onBlur }
     form: { touched, errors }, // also values, setXXXX, handleXXXX, dirty, isValid, status, etc.
     ...props
 }) => {
-    const error = touched[field.name] &&
-        errors[field.name];
+    const error = touched[field.name] && errors[field.name];
 
     return (
         <div>
-            <Query query={props.LIST_QUERY} fetchPolicy={props.fetchPolicy}>
+            <Query query={props.LIST_QUERY} fetchPolicy={props.fetchPolicy ? props.fetchPolicy : 'cache'}>
                 {({ loading, error, data }) => {
 
                     if (loading) return <Input type="select" className={error && 'is-invalid'} {...field} multiple={props.multiple}></Input>;
@@ -35,8 +34,7 @@ const CustomSelect = ({
                     );
                 }}
             </Query>
-            {error &&
-                <div className='help-block error'>{errors[field.name]}</div>}
+            {error && <div className='help-block error'>{errors[field.name]}</div>}
         </div>
     )
 };

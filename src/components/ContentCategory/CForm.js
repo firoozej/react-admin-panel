@@ -3,8 +3,8 @@ import gql from 'graphql-tag';
 import { Button, Col, FormGroup, Label, CardBody, CardHeader, CardFooter } from 'reactstrap';
 import { withFormik, Form, Field } from 'formik';
 import Loading from '../Loading';
-import CustomInput from '../CustomInput';
-import CustomSelect from '../CustomSelect';
+import CustomInput from '../Input/CustomInput';
+import CustomSelect from '../Input/CustomSelect';
 import withBox from '../withBox';
 const Yup = require('yup');
 

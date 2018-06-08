@@ -4,7 +4,7 @@ import {
     Button, Col, Card, CardBody, Row, Container, CardGroup, InputGroup, InputGroupAddon,
     InputGroupText
 } from 'reactstrap';
-import CustomInput from '../CustomInput';
+import CustomInput from '../Input/CustomInput';
 import Loading from '../Loading';
 
 const Yup = require('yup');

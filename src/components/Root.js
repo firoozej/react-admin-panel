@@ -17,7 +17,7 @@ class Root extends Component {
     onError = (Error) => {
         let error;
         if (Error.networkError) {
-            error = Error.networkError.bodyText;
+            error = Error.networkError.message;
         }
         if (Error.graphQLErrors.length) {
             error = Error.graphQLErrors.reduce(

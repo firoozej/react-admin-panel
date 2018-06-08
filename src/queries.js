@@ -46,3 +46,26 @@ export const categories = gql`
     }
 }
 `;
+
+export const items = gql`
+{
+    items {
+        id
+        name
+        category {
+            id
+            name
+        }
+    }
+}
+`;
+
+export const files = gql`
+query getFiles($path: String) {
+  files(path:$path) {
+    name
+    type
+    path
+  }
+}
+`;

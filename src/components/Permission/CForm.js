@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { Button, Col, FormGroup, Label, CardBody, CardHeader, CardFooter } from 'reactstrap';
 import { withFormik, Form, Field } from 'formik';
 import Loading from '../Loading';
-import CustomInput from '../CustomInput';
-import CustomSelect from '../CustomSelect';
+import CustomInput from '../Input/CustomInput';
+import CustomSelect from '../Input/CustomSelect';
 import withBox from '../withBox';
 import { rolesQuery } from '../../queries';
 const Yup = require('yup');
@@ -13,15 +13,15 @@ class CForm extends Component {
         this.props.setFieldValue(
             "roles",
             this.props.values.roles.map(role => role.id)
-          )
+        )
     }
     onRoleChange = (evt) => {
         this.props.setFieldValue(
             "roles",
             [].slice
-              .call(evt.target.selectedOptions)
-              .map(option => option.value)
-          )
+                .call(evt.target.selectedOptions)
+                .map(option => option.value)
+        )
     }
     render() {
         return (
@@ -44,12 +44,12 @@ class CForm extends Component {
                                 <Label>Assign To Role</Label>
                             </Col>
                             <Col xs='12' md='5'>
-                                <Field name="roles" component={CustomSelect} 
-                                       onChange={this.onRoleChange}
-                                       LIST_QUERY={rolesQuery}
-                                       multiple
-                                       />
-        
+                                <Field name="roles" component={CustomSelect}
+                                    onChange={this.onRoleChange}
+                                    LIST_QUERY={rolesQuery}
+                                    multiple
+                                />
+
                             </Col>
                         </FormGroup>
                     </CardBody>
@@ -58,7 +58,7 @@ class CForm extends Component {
                     </CardFooter>
                 </Form>
             </React.Fragment>
-        
+
         )
 
     }

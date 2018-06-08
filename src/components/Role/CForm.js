@@ -2,7 +2,7 @@ import React from 'react';
 import {Button, Col, FormGroup, Label, CardBody, CardHeader, CardFooter} from 'reactstrap';
 import {withFormik, Form, Field} from 'formik';
 import Loading from '../Loading';
-import CustomInput from '../CustomInput';
+import CustomInput from '../Input/CustomInput';
 import withBox from '../withBox';
 const Yup = require('yup');
 

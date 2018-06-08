@@ -20,11 +20,16 @@ class AppTable extends Component {
                     {this.props.data.map(item => (
                         <tr key={item.id}>
                             {this.props.keys.map((key, index) => {
+                                    const keyParts = key.split(".");
+                                    let link = item[keyParts[0]];
+                                    for (let i = 1; i < keyParts.length; i++ ) {
+                                        link = link[keyParts[i]];
+                                    }
                                     return (
                                         <td key={index}>
                                             {index === 0
-                                                ? <Link to={`/${this.props.route}/edit/${item.id}`}>{item[key]}</Link>
-                                                : item[key]
+                                                ? <Link to={`/${this.props.route}/edit/${item.id}`}>{link}</Link>
+                                                : link
                                             }
                                         </td>
                                     )

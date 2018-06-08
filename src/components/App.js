@@ -17,18 +17,27 @@ import routes from '../routes';
 import FullAside from './FullAside';
 import FullFooter from './FullFooter';
 import FullHeader from './FullHeader';
+
 import RoleEdit from './Role/Edit';
 import RoleList from './Role/List';
 import RoleCreate from './Role/Create';
+
 import PermissionEdit from './Permission/Edit';
 import PermissionList from './Permission/List';
 import PermissionCreate from './Permission/Create';
+
 import UserEdit from './User/Edit';
 import UserList from './User/List';
 import UserCreate from './User/Create';
+
 import ContentCategoryEdit from './ContentCategory/Edit';
 import ContentCategoryList from './ContentCategory/List';
 import ContentCategoryCreate from './ContentCategory/Create';
+
+import ContentItemEdit from './ContentItem/Edit';
+import ContentItemList from './ContentItem/List';
+import ContentItemCreate from './ContentItem/Create';
+
 import Dashboard from './Dashboard';
 import AppSidebarNav from './AppSidebarNav';
 
@@ -57,6 +66,9 @@ class App extends Component {
                         <AppBreadcrumb appRoutes={routes} />
                         <Container fluid>
                             <Switch>
+                                <Route path='/item/create' component={ContentItemCreate} />
+                                <Route path='/item/edit/:id' component={ContentItemEdit} />
+                                <Route path='/item' component={ContentItemList} />
                                 <Route path='/category/create' component={ContentCategoryCreate} />
                                 <Route path='/category/edit/:id' component={ContentCategoryEdit} />
                                 <Route path='/category' component={ContentCategoryList} />
