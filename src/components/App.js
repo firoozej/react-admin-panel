@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Container } from 'reactstrap';
+import Loadable from 'react-loadable';
 import {
     AppAside,
     AppBreadcrumb,
@@ -13,30 +14,11 @@ import {
     AppSidebarMinimizer,
 } from '@coreui/react';
 
+import Loading from './Loading';
 import routes from '../routes';
 import FullAside from './FullAside';
 import FullFooter from './FullFooter';
 import FullHeader from './FullHeader';
-
-import RoleEdit from './Role/Edit';
-import RoleList from './Role/List';
-import RoleCreate from './Role/Create';
-
-import PermissionEdit from './Permission/Edit';
-import PermissionList from './Permission/List';
-import PermissionCreate from './Permission/Create';
-
-import UserEdit from './User/Edit';
-import UserList from './User/List';
-import UserCreate from './User/Create';
-
-import ContentCategoryEdit from './ContentCategory/Edit';
-import ContentCategoryList from './ContentCategory/List';
-import ContentCategoryCreate from './ContentCategory/Create';
-
-import ContentItemEdit from './ContentItem/Edit';
-import ContentItemList from './ContentItem/List';
-import ContentItemCreate from './ContentItem/Create';
 
 import Dashboard from './Dashboard';
 import AppSidebarNav from './AppSidebarNav';
@@ -45,6 +27,81 @@ import 'flag-icon-css/css/flag-icon.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'simple-line-icons/css/simple-line-icons.css';
 import '../scss/style.css';
+
+const RoleList = Loadable({
+    loader: () => import('./Role/List'),
+    loading: Loading,
+});
+
+const RoleCreate = Loadable({
+    loader: () => import('./Role/Create'),
+    loading: Loading,
+});
+
+const RoleEdit = Loadable({
+    loader: () => import('./Role/Edit'),
+    loading: Loading,
+});
+
+const PermissionList = Loadable({
+    loader: () => import('./Permission/List'),
+    loading: Loading,
+});
+
+const PermissionCreate = Loadable({
+    loader: () => import('./Permission/Create'),
+    loading: Loading,
+});
+
+const PermissionEdit = Loadable({
+    loader: () => import('./Permission/Edit'),
+    loading: Loading,
+});
+
+const UserList = Loadable({
+    loader: () => import('./User/List'),
+    loading: Loading,
+});
+
+const UserCreate = Loadable({
+    loader: () => import('./User/Create'),
+    loading: Loading,
+});
+
+const UserEdit = Loadable({
+    loader: () => import('./User/Edit'),
+    loading: Loading,
+});
+
+const ContentCategoryList = Loadable({
+    loader: () => import('./ContentCategory/List'),
+    loading: Loading,
+});
+
+const ContentCategoryCreate = Loadable({
+    loader: () => import('./ContentCategory/Create'),
+    loading: Loading,
+});
+
+const ContentCategoryEdit = Loadable({
+    loader: () => import('./ContentCategory/Edit'),
+    loading: Loading,
+});
+
+const ContentItemList = Loadable({
+    loader: () => import('./ContentItem/List'),
+    loading: Loading,
+});
+
+const ContentItemCreate = Loadable({
+    loader: () => import('./ContentItem/Create'),
+    loading: Loading,
+});
+
+const ContentItemEdit = Loadable({
+    loader: () => import('./ContentItem/Edit'),
+    loading: Loading,
+});
 
 
 class App extends Component {
