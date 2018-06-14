@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import HeaderDropDown from './HeaderDropDown';
+import AccountDropDown from './AccountDropDown';
 import gql from 'graphql-tag';
 import withApollo from "react-apollo/withApollo";
 import withRouter from "react-router-dom/es/withRouter";
@@ -12,7 +12,7 @@ query {
 }
 `;
 
-class HeaderDropDownMenu extends Component{
+class AccountDropDownMenu extends Component{
     onLogOut() {
         this.props.client.query({
             query: logoutQuery
@@ -24,7 +24,7 @@ class HeaderDropDownMenu extends Component{
         })
     }
     render() {
-       return <HeaderDropDown onLogout={this.onLogOut.bind(this)} />;
+       return <AccountDropDown onLogout={this.onLogOut.bind(this)} />;
     }
 }
-export default withApollo(withRouter(HeaderDropDownMenu));
+export default withApollo(withRouter(AccountDropDownMenu));

@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { Badge, Nav, NavItem, NavLink } from 'reactstrap';
+import { Nav, NavItem, NavLink } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { AppAsideToggler, AppNavbarBrand, AppSidebarToggler } from '@coreui/react';
-import HeaderDropDownMenu from './HeaderDropDown/HeaderDropDownMenu';
+import AccountDropDownMenu from './AccountDropDown/index';
+import NotificationDropDownMenu from './NotificationDropDown/index';
 
 const propTypes = {
   children: PropTypes.node,
@@ -12,7 +13,7 @@ const defaultProps = {};
 
 class FullHeader extends Component {
   logout() {
-      this.props.mutate();
+    this.props.mutate();
   }
   render() {
 
@@ -40,16 +41,14 @@ class FullHeader extends Component {
           </NavItem>
         </Nav>
         <Nav className='ml-auto' navbar>
-          <NavItem className='d-md-down-none'>
-            <NavLink href='#'><i className='icon-bell'></i><Badge pill color='danger'>5</Badge></NavLink>
-          </NavItem>
+          <NotificationDropDownMenu />
           <NavItem className='d-md-down-none'>
             <NavLink href='#'><i className='icon-list'></i></NavLink>
           </NavItem>
           <NavItem className='d-md-down-none'>
             <NavLink href='#'><i className='icon-location-pin'></i></NavLink>
           </NavItem>
-          <HeaderDropDownMenu/>
+          <AccountDropDownMenu />
         </Nav>
         <AppAsideToggler className='d-md-down-none' />
         {/*<AppAsideToggler className='d-lg-none' mobile />*/}
