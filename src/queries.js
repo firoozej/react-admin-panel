@@ -60,6 +60,18 @@ export const items = gql`
 }
 `;
 
+export const notifications = gql`
+{
+    notifications {
+        id
+        text
+        users {
+            name
+        }
+    }
+}
+`;
+
 export const files = gql`
 query getFiles($path: String) {
   files(path:$path) {

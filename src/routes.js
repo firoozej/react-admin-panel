@@ -15,6 +15,9 @@ const routes = [
   { path: '/item', exact: true, name: 'Items' },
   { path: '/item/create', name: 'New Item'},
   { path: '/item/edit/:id', name: 'Edit Item'},
+  { path: '/notification', exact: true, name: 'Notifications' },
+  { path: '/notification/create', name: 'New Notification'},
+  { path: '/notification/edit/:id', name: 'Edit Notification'},
 ];
 
 export default routes;

@@ -103,6 +103,20 @@ const ContentItemEdit = Loadable({
     loading: Loading,
 });
 
+const NotificationList = Loadable({
+    loader: () => import('./Notification/List'),
+    loading: Loading,
+});
+
+const NotificationCreate = Loadable({
+    loader: () => import('./Notification/Create'),
+    loading: Loading,
+});
+
+const NotificationEdit = Loadable({
+    loader: () => import('./Notification/Edit'),
+    loading: Loading,
+});
 
 class App extends Component {
     render() {
@@ -123,6 +137,9 @@ class App extends Component {
                         <AppBreadcrumb appRoutes={routes} />
                         <Container fluid>
                             <Switch>
+                                <Route path='/notification/create' component={NotificationCreate} />
+                                <Route path='/notification/edit/:id' component={NotificationEdit} />
+                                <Route path='/notification' component={NotificationList} />
                                 <Route path='/item/create' component={ContentItemCreate} />
                                 <Route path='/item/edit/:id' component={ContentItemEdit} />
                                 <Route path='/item' component={ContentItemList} />

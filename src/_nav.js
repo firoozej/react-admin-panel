@@ -44,6 +44,12 @@ export default {
           type: 'item'
         }
       ],
-    }
+    },
+    {
+      name: 'Notifications',
+      url: '/notification',
+      icon: 'icon-star',
+      type: 'item'
+    },
   ]
 };
