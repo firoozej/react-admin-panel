@@ -13,6 +13,6 @@ export default (props) => {
         </div>);
     }
 
-    else return <div className='loading-indicator'><img src={'/assets/img/loading.gif'} alt='' /></div>
+    else return <div className='loading-indicator my-2'><img src={'/assets/img/loading.gif'} alt='' /></div>
 
 }
