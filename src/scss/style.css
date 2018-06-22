@@ -10011,9 +10011,12 @@ body {
   font-size: 0.9em;
   cursor: pointer; }
 
-.file-manager .operation-list i {
-  font-size: 1.5em;
+.file-manager .operation-list {
   cursor: pointer; }
+  .file-manager .operation-list i {
+    font-size: 1.5em; }
+  .file-manager .operation-list span {
+    font-size: 0.75em; }
 
 .file-manager .selected-file {
   background: #e4e7ea;

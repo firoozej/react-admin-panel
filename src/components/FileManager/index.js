@@ -13,14 +13,16 @@ class FileManager extends Component {
     state = {
         currentPath: '',
         pathList: [],
-        selectedFiles: []
+        selectedFiles: [],
+        selectedFolders: []
     };
 
     resetState () {
         this.setState({
             currentPath: '',
             pathList: [],
-            selectedFiles: []
+            selectedFiles: [],
+            selectedFolders: []
         });
     }
 
@@ -53,9 +55,23 @@ class FileManager extends Component {
         });
     };
 
-
-
     onFolderClick(path) {
+        this.setState(prevState => {
+            if (prevState.selectedFolders.includes(path)) {
+                const selectedFolders = prevState.selectedFolders.filter(folderPath => folderPath !== path);
+                return {
+                    selectedFolders
+                }
+            }
+            else {
+                return {
+                    selectedFolders: [...prevState.selectedFolders, path]
+                }
+            }
+        });
+    }
+
+    onFolderDoubleClick(path) {
         this.setState(prevState => ({
             currentPath: path,
             pathList: [...prevState.pathList, path]
@@ -83,6 +99,15 @@ class FileManager extends Component {
         this.onCloseClick();
     }
 
+    onDeleteFile = (deleteFileMutation) => {
+        deleteFileMutation({
+            variables: {
+                files: this.state.selectedFiles,
+                folders: this.state.selectedFolders
+            }
+        });
+    }
+
     renderFileView(data) {
         const files = data.files.map(file => {
             if (file.type === 'file') {
@@ -101,7 +126,10 @@ class FileManager extends Component {
             else {
                 return (
                     <Col key={file.name} md='6'>
-                        <div onClick={this.onFolderClick.bind(this, file.path)} className='pointer mb-3'>
+                        <div 
+                        onDoubleClick={this.onFolderDoubleClick.bind(this, file.path)} 
+                        onClick={this.onFolderClick.bind(this,file.path)}
+                        className={`pointer mb-3 ${this.state.selectedFolders.includes(file.path) ? 'selected-file' : ''}`}>
                             <i className='fa fa-folder font-4xl d-block align-middle mr-1 text-primary'></i>
                             <div className='align-middle d-inline-block'>{file.name}</div>
                         </div>
@@ -116,7 +144,7 @@ class FileManager extends Component {
         return (
             <Modal isOpen={this.props.isOpen} size='lg' className='file-manager'>
                 <ModalHeader>File Manager</ModalHeader>
-                <Operation onUploadClick={this.onUploadClick} />
+                <Operation path={this.state.currentPath} onDeleteFile={this.onDeleteFile}/>
 
                 <Path pathList={this.state.pathList} onPathChange={this.onPathChange} />
                 <Dropzone path={this.state.currentPath} />
